@@ -1,6 +1,6 @@
 # Calculator
 
-A small interactive calculator written in C#.
+A small browser-based calculator written with ASP.NET Core and vanilla JavaScript.
 
 ## Run
 
@@ -8,5 +8,6 @@ A small interactive calculator written in C#.
 dotnet run
 ```
 
-Enter expressions with spaces around the operator, for example `8 / 2`. Enter
-`q` or `quit` to exit.
+Then open <http://localhost:5000> in a browser. The calculator supports keyboard
+input, parentheses, decimals, powers, modulo, percentages, constants, factorials,
+reciprocals, square roots, squares, trigonometry in degrees, and `log`/`ln`.

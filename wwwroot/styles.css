@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap');
+
+:root {
+  --ink: #202a29;
+  --muted: #78807c;
+  --paper: #f4efe6;
+  --panel: #fffdf9;
+  --line: #e4ddd1;
+  --accent: #da684b;
+  --accent-dark: #b74c34;
+  --mint: #c9ded1;
+  --shadow: 0 24px 70px rgba(56, 47, 35, 0.12);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background-color: var(--paper);
+  background-image: radial-gradient(#d9cfbf 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  font-family: 'Manrope', sans-serif;
+}
+
+button { font: inherit; }
+
+.app-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 440px) minmax(260px, 330px);
+  gap: 32px;
+  width: min(100% - 40px, 860px);
+  margin: 0 auto;
+  padding: 8vh 0;
+}
+
+.calculator, .history-panel {
+  background: var(--panel);
+  border: 1px solid rgba(228, 221, 209, 0.9);
+  box-shadow: var(--shadow);
+}
+
+.calculator { padding: 28px; border-radius: 18px; }
+.calculator-header, .history-heading { display: flex; align-items: flex-start; justify-content: space-between; }
+.eyebrow { margin: 0 0 6px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+h1, h2 { margin: 0; font-weight: 800; letter-spacing: -0.04em; }
+h1 { font-size: 28px; }
+h2 { font-size: 23px; }
+.status-dot { width: 10px; height: 10px; margin-top: 6px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 5px #edf5ef; }
+
+.display { min-height: 142px; display: flex; flex-direction: column; justify-content: end; align-items: flex-end; padding: 28px 4px 22px; overflow: hidden; }
+.expression { width: 100%; min-height: 22px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 15px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.result { max-width: 100%; overflow: hidden; color: var(--ink); font-family: 'DM Mono', monospace; font-size: clamp(34px, 8vw, 48px); font-weight: 500; letter-spacing: -0.07em; white-space: nowrap; text-overflow: ellipsis; }
+
+.keypad { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.key { min-height: 58px; border: 0; border-radius: 10px; color: var(--ink); background: #f5f1e9; cursor: pointer; font-size: 18px; font-weight: 700; transition: transform 120ms ease, background 120ms ease; }
+.key:hover { background: #ebe4d8; }
+.key:active { transform: scale(0.95); }
+.key:focus-visible, .clear-history:focus-visible { outline: 3px solid rgba(218, 104, 75, 0.35); outline-offset: 2px; }
+.key-muted { color: var(--muted); background: #ece8df; font-size: 13px; }
+.key-science { color: #577468; background: #e5eee8; font-size: 13px; }
+.key-science:hover { background: #d7e7dd; }
+.key-operator { color: var(--accent-dark); background: #f7e2da; font-size: 24px; }
+.key-operator:hover { background: #f1d1c5; }
+.key-equals { color: #fffdf9; background: var(--accent); font-size: 24px; }
+.key-equals:hover { background: var(--accent-dark); }
+.key-wide { grid-column: span 2; }
+
+.history-panel { align-self: start; min-height: 420px; padding: 28px; border-radius: 18px; background: rgba(255, 253, 249, 0.82); }
+.clear-history { padding: 3px 0; border: 0; color: var(--accent-dark); background: none; cursor: pointer; font-size: 12px; font-weight: 800; }
+.history-list { min-height: 280px; padding-top: 28px; }
+.empty-history { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.history-item { width: 100%; padding: 13px 0; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); background: transparent; cursor: pointer; text-align: left; }
+.history-item:first-child { padding-top: 0; }
+.history-expression { display: block; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 12px; }
+.history-result { display: block; margin-top: 5px; font-family: 'DM Mono', monospace; font-size: 17px; }
+.keyboard-hint { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.7; }
+kbd { padding: 3px 5px; border: 1px solid var(--line); border-radius: 4px; background: #f8f4ec; font-family: 'DM Mono', monospace; font-size: 10px; }
+
+@media (max-width: 720px) {
+  .app-shell { grid-template-columns: 1fr; width: min(100% - 24px, 440px); padding: 24px 0 40px; }
+  .calculator { padding: 20px; }
+  .history-panel { min-height: auto; }
+  .history-list { min-height: 0; }
+}
