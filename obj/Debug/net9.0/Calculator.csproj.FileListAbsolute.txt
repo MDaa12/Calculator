@@ -27,5 +27,5 @@
 /workspaces/Calculator/obj/Debug/net9.0/staticwebassets.build.endpoints.json
 /workspaces/Calculator/obj/Debug/net9.0/swae.build.ex.cache
 /workspaces/Calculator/obj/Debug/net9.0/compressed/fomlikrcp2-{0}-0njhtix46w-0njhtix46w.gz
-/workspaces/Calculator/obj/Debug/net9.0/compressed/vw1b6rhsim-{0}-bdfv20usvp-bdfv20usvp.gz
-/workspaces/Calculator/obj/Debug/net9.0/compressed/1kmfk7rpam-{0}-pqpiz5qh5p-pqpiz5qh5p.gz
+/workspaces/Calculator/obj/Debug/net9.0/compressed/vw1b6rhsim-{0}-q1pyxc2xlz-q1pyxc2xlz.gz
+/workspaces/Calculator/obj/Debug/net9.0/compressed/1kmfk7rpam-{0}-f59k0ott8r-f59k0ott8r.gz
