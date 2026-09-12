@@ -10,7 +10,12 @@ dotnet run
 
 Then open <http://localhost:5000> in a browser. The calculator supports keyboard
 input, parentheses, decimals, powers, modulo, percentages, constants, factorials,
-reciprocals, square roots, squares, trigonometry in degrees, and `log`/`ln`.
+reciprocals, square roots, squares, trigonometry in degrees, `log`/`ln`, and
+scientific notation such as `6.02e23` or `1.5e-4`.
+
+The **Dice** page at <http://localhost:5000/dice.html> rolls D4, D6, D8, D10,
+D12, D20, and D100 dice with multiple dice and modifiers. It also includes
+quick D&D rolls, natural 20/1 callouts, and a roll log.
 
 ## GitHub Pages
 

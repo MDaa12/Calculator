@@ -1,0 +1,73 @@
+.dice-shell {
+  width: min(100% - 40px, 940px);
+  margin: 0 auto;
+  padding: 7vh 0;
+}
+
+.dice-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 34px; }
+.dice-header h1 { font-size: clamp(38px, 7vw, 62px); line-height: 0.98; }
+.lead { max-width: 430px; margin: 16px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.site-nav { display: flex; gap: 5px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: rgba(52, 56, 59, 0.72); }
+.nav-link { padding: 8px 13px; border-radius: 8px; color: var(--muted); font-size: 12px; font-weight: 800; text-decoration: none; }
+.nav-link:hover, .nav-link.active { color: var(--ink); background: var(--surface); }
+
+.dice-layout { display: grid; grid-template-columns: minmax(340px, 1fr) minmax(300px, 0.8fr); gap: 18px; }
+.roller-panel, .result-panel { padding: 30px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; background: var(--panel); box-shadow: var(--shadow); }
+.panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.panel-heading h2 { font-size: 21px; }
+.dice-mark { display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(239, 118, 85, 0.4); border-radius: 14px; color: var(--accent-dark); background: rgba(239, 118, 85, 0.12); font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; transform: rotate(5deg); }
+.roll-builder { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 12px 14px; margin-top: 30px; }
+.field-label { color: var(--muted); font-size: 12px; font-weight: 800; }
+.stepper { display: grid; grid-template-columns: 36px 1fr 36px; gap: 5px; }
+.step-button, .stepper input, select { min-height: 42px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: var(--surface); text-align: center; font: inherit; }
+.step-button { cursor: pointer; font-size: 19px; }
+.step-button:hover { background: #414649; }
+.stepper input { width: 100%; font-family: 'DM Mono', monospace; }
+select { width: 100%; padding: 0 10px; text-align: left; cursor: pointer; }
+.formula { margin: 30px 0 12px; color: var(--accent-dark); font-family: 'DM Mono', monospace; font-size: 27px; }
+.roll-button { width: 100%; min-height: 58px; border: 0; border-radius: 12px; color: #241f1d; background: var(--accent); cursor: pointer; font-size: 15px; font-weight: 800; }
+.roll-button:hover { background: var(--accent-dark); }
+.roll-button span { margin-left: 7px; font-size: 20px; }
+.quick-rolls { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--line); }
+.quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.quick-grid button { min-height: 39px; border: 1px solid var(--line); border-radius: 9px; color: var(--muted); background: transparent; cursor: pointer; font-size: 11px; font-weight: 700; }
+.quick-grid button:hover { color: var(--ink); background: var(--surface); }
+.total-result { margin-top: 34px; color: #fffaf2; font-family: 'DM Mono', monospace; font-size: clamp(64px, 10vw, 94px); line-height: 0.95; letter-spacing: -0.09em; }
+.roll-breakdown { min-height: 45px; margin-top: 15px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 12px; line-height: 1.6; }
+.roll-history { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); }
+.roll-entry { display: flex; align-items: baseline; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.roll-entry-formula { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 12px; }
+.roll-entry-total { font-family: 'DM Mono', monospace; font-size: 17px; }
+.critical { color: var(--mint); }
+.fumble { color: var(--accent-dark); }
+.tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+.tool-panel { padding: 28px 30px; border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 24px; background: var(--panel); box-shadow: var(--shadow); }
+.tool-tag { padding: 7px 9px; border-radius: 7px; color: var(--mint); background: rgba(157, 209, 183, 0.1); font-family: 'DM Mono', monospace; font-size: 10px; white-space: nowrap; }
+.tool-copy { min-height: 42px; margin: 18px 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.ability-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; min-height: 112px; }
+.ability-card { position: relative; display: flex; min-height: 104px; flex-direction: column; justify-content: center; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.ability-card strong { font-family: 'DM Mono', monospace; font-size: 25px; }
+.ability-index { position: absolute; top: 7px; left: 9px; color: var(--muted); font-size: 9px; }
+.ability-mod { color: var(--accent-dark); font-family: 'DM Mono', monospace; font-size: 12px; }
+.ability-card small { margin-top: 7px; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 8px; }
+.ability-empty { grid-column: 1 / -1; display: grid; min-height: 104px; place-items: center; border: 1px dashed var(--line); border-radius: 10px; color: var(--muted); font-size: 12px; }
+.secondary-button { width: 100%; min-height: 42px; margin-top: 14px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: transparent; cursor: pointer; font-size: 12px; font-weight: 800; }
+.secondary-button:hover { background: var(--surface); }
+.initiative-form { display: grid; grid-template-columns: 1fr 65px 42px; gap: 7px; margin: 26px 0 10px; }
+.initiative-form input { min-width: 0; min-height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--surface); font: inherit; font-size: 12px; }
+.add-button { border: 0; border-radius: 8px; color: #241f1d; background: var(--accent); cursor: pointer; font-size: 22px; }
+.initiative-list { min-height: 126px; }
+.initiative-row { display: grid; grid-template-columns: 24px 1fr 28px 22px; gap: 8px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 12px; }
+.initiative-row.current-turn { color: var(--mint); }
+.turn-number { color: var(--muted); font-family: 'DM Mono', monospace; font-size: 10px; }
+.combatant-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.initiative-row strong { font-family: 'DM Mono', monospace; text-align: right; }
+.initiative-row button { border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: 17px; }
+
+@media (max-width: 720px) {
+  .dice-shell { width: min(100% - 24px, 510px); padding: 24px 0 40px; }
+  .dice-header { gap: 22px; flex-direction: column; }
+  .dice-layout { grid-template-columns: 1fr; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .roller-panel, .result-panel { padding: 22px; }
+}

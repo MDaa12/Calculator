@@ -5,11 +5,11 @@ const history = [];
 let expression = '';
 
 function formatNumber(value) {
-  return Number.isInteger(value) ? String(value) : String(Number(value.toFixed(10)));
+  return Number(value.toPrecision(12)).toString();
 }
 
 function tokenize(value) {
-  const tokens = value.replace(/\s/g, '').match(/\d*\.?\d+|[()+\-*/%^]/g);
+  const tokens = value.replace(/\s/g, '').match(/\d*\.?\d+(?:[eE][+\-]?\d+)?|[()+\-*/%^]/g);
   if (!tokens || tokens.join('') !== value.replace(/\s/g, '')) {
     throw new Error('Invalid expression');
   }
@@ -159,7 +159,7 @@ document.querySelector('#clear-history').addEventListener('click', () => {
 });
 
 document.addEventListener('keydown', event => {
-  if (/^[0-9.]$/.test(event.key) || ['+', '-', '*', '/', '%', '^', '(', ')'].includes(event.key)) append(event.key);
+  if (/^[0-9.eE]$/.test(event.key) || ['+', '-', '*', '/', '%', '^', '(', ')'].includes(event.key)) append(event.key);
   else if (event.key === 'Enter' || event.key === '=') evaluate();
   else if (event.key === 'Backspace') { expression = expression.slice(0, -1); render(); }
   else if (event.key === 'Escape') { expression = ''; render(); }

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#202326">
+  <title>Dice Room | Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="dice.css">
+</head>
+<body>
+  <main class="dice-shell">
+    <header class="dice-header">
+      <div>
+        <p class="eyebrow">Tabletop toolkit</p>
+        <h1>Dice Room</h1>
+        <p class="lead">Roll for initiative, damage, checks, and whatever the dungeon throws at you.</p>
+      </div>
+      <nav class="site-nav" aria-label="Tools">
+        <a class="nav-link" href="index.html">Calc</a>
+        <a class="nav-link active" href="dice.html">Dice</a>
+      </nav>
+    </header>
+
+    <section class="dice-layout">
+      <section class="roller-panel" aria-label="Dice roller">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Build a roll</p>
+            <h2>What are you rolling?</h2>
+          </div>
+          <span class="dice-mark">d20</span>
+        </div>
+
+        <div class="roll-builder">
+          <label class="field-label" for="dice-count">Dice</label>
+          <div class="stepper">
+            <button class="step-button" type="button" data-step="count" data-change="-1" aria-label="Decrease dice count">−</button>
+            <input id="dice-count" type="number" min="1" max="99" value="1">
+            <button class="step-button" type="button" data-step="count" data-change="1" aria-label="Increase dice count">+</button>
+          </div>
+
+          <label class="field-label" for="dice-sides">Sides</label>
+          <select id="dice-sides">
+            <option value="4">d4</option>
+            <option value="6">d6</option>
+            <option value="8">d8</option>
+            <option value="10">d10</option>
+            <option value="12">d12</option>
+            <option value="20" selected>d20</option>
+            <option value="100">d100</option>
+          </select>
+
+          <label class="field-label" for="roll-modifier">Modifier</label>
+          <div class="stepper">
+            <button class="step-button" type="button" data-step="modifier" data-change="-1" aria-label="Decrease modifier">−</button>
+            <input id="roll-modifier" type="number" min="-99" max="99" value="0">
+            <button class="step-button" type="button" data-step="modifier" data-change="1" aria-label="Increase modifier">+</button>
+          </div>
+        </div>
+
+        <div class="formula" id="formula">1d20</div>
+        <button class="roll-button" id="roll-button" type="button">Roll the dice <span>↗</span></button>
+
+        <div class="quick-rolls">
+          <p class="eyebrow">Quick rolls</p>
+          <div class="quick-grid">
+            <button type="button" data-quick="1d20">Ability check</button>
+            <button type="button" data-quick="1d20+5">Attack +5</button>
+            <button type="button" data-quick="2d6+3">Weapon damage</button>
+            <button type="button" data-quick="1d4+2">Healing potion</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="result-panel" aria-live="polite">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Latest result</p>
+            <h2 id="result-label">Ready to roll</h2>
+          </div>
+          <button class="clear-history" id="clear-rolls" type="button">Clear log</button>
+        </div>
+        <div class="total-result" id="total-result">—</div>
+        <div class="roll-breakdown" id="roll-breakdown">Choose a die and make your move.</div>
+        <div class="roll-history" id="roll-history">
+          <p class="empty-history">Your rolls will appear here.</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="tool-grid">
+      <section class="tool-panel" aria-label="Ability score generator">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Character builder</p>
+            <h2>Ability scores</h2>
+          </div>
+          <span class="tool-tag">4d6 drop lowest</span>
+        </div>
+        <p class="tool-copy">Roll six scores using the classic method, then assign them to your character.</p>
+        <div class="ability-grid" id="ability-grid">
+          <div class="ability-empty">Your six scores are waiting.</div>
+        </div>
+        <button class="secondary-button" id="roll-abilities" type="button">Roll six scores</button>
+      </section>
+
+      <section class="tool-panel" aria-label="Initiative tracker">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Encounter helper</p>
+            <h2>Initiative</h2>
+          </div>
+          <button class="clear-history" id="clear-initiative" type="button">Reset</button>
+        </div>
+        <form class="initiative-form" id="initiative-form">
+          <input id="combatant-name" type="text" maxlength="24" placeholder="Combatant name" required>
+          <input id="initiative-score" type="number" min="-20" max="99" placeholder="Init" required>
+          <button class="add-button" type="submit" aria-label="Add combatant">+</button>
+        </form>
+        <div class="initiative-list" id="initiative-list">
+          <p class="empty-history">Add creatures or heroes to begin.</p>
+        </div>
+        <button class="secondary-button" id="next-turn" type="button">Next turn <span>↗</span></button>
+      </section>
+    </section>
+  </main>
+  <script src="dice.js"></script>
+</body>
+</html>
